@@ -1,0 +1,64 @@
+
+
+<div>
+<div class="site_wrapper profiles-bg-grey wrap">
+    
+
+    <div class="profile_page mb-5">
+
+        <div class="address m-0"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 company-fund">
+                    <h2>My company</h2>
+                        <p>Your fundraise details</p>
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/my-profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="tab1-tab" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">
+                      My Profile
+                    </a>
+                        </li>
+                        <!-- 
+                            <a class="nav-link"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="tab1-tab" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">
+                      KYC Details
+                    </a>
+                        </li> -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/my-profile/user-campaigns" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="tab1-tab" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">
+                            My Funding Campaign
+                    </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="" id="tab1-tab" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">
+                              Push Updates
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="" id="tab1-tab" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">
+                                Company Info
+                            </a>
+                        </li>
+                        <ng-container>
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="/my-profile/operations" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="tab1-tab" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">
+                                    Statements
+                                </a>
+                            </li>
+                        </ng-container>
+
+
+                    <!-- </ul> -->
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content pl-4" id="myProfileContent">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
