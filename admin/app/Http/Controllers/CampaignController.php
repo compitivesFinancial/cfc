@@ -149,7 +149,7 @@ class CampaignController extends Controller
 
         public function updateDateCampagin(Request $req,$id){
             $result=campaign::find($id);
-            $date=$req->header('date');
+            $date=$req->header('closeDate');
             if($result != ""){
              $result->close_date=$date;
              $result->save();

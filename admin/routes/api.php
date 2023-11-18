@@ -14,6 +14,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PageConttroller;
 use App\Http\Controllers\CmsConttroller;
+use App\Http\Controllers\QualifiedInvestorAttachementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -175,6 +176,10 @@ Route::post('/sendmail',[EmailController::class,'sendMail']);
     Route::post('/insert_opportunity_setup',[CampaignController::class,'insertOpportunitySetup']);
     Route::post('campaign_update_closedate/{id}',[CampaignController::class,'updateDateCampagin']);
 
+    //Qualified Investor Attachement
+    Route::get('getQualifiedInvestorAttach/{id}', [QualifiedInvestorAttachementController::class, 'getQualifiedInvestData']);
+    Route::post('addQualifiedInvestorAttach', [QualifiedInvestorAttachementController::class, 'saveQualifiedInvestData']);
+    Route::post('editQualifiedInvestorAttach', [QualifiedInvestorAttachementController::class, 'updateQualifiedInvestData']);
 
 // });
 
