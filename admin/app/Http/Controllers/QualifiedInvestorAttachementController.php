@@ -28,9 +28,9 @@ class QualifiedInvestorAttachementController extends Controller
     /**************************************************************************************************/
     public function updateQualifiedInvestData(Request $req)
     {
-        $id=Crypt::decrypt($req->id);
+        //$id=Crypt::decrypt($req->id);
         try {
-            qualified_investor_attachement::where($id)->update([
+            qualified_investor_attachement::where($req->id)->update([
                 "investor_id" => $req->investor_id,
                 "min3WorkYear_url" => $req->min3WorkYear_url,
                 "certificateCME1_url" => $req->certificateCME1_url,
@@ -47,10 +47,10 @@ class QualifiedInvestorAttachementController extends Controller
 
     public function deleteQualifiedInvestData(Request $req)
     {
-        $id=Crypt::decrypt($req->id);
+        //$id=Crypt::decrypt($req->id);
 
         try {
-            qualified_investor_attachement::where($id)->delete();
+            qualified_investor_attachement::where($req->id)->delete();
             return CustomTrait::SuccessJson('done');
         } catch (\Throwable $th) {
             return CustomTrait::ErrorJson($$th->getMessage());
@@ -61,7 +61,7 @@ class QualifiedInvestorAttachementController extends Controller
 
     public function getQualifiedInvestData($id)
     {
-        $id=Crypt::decrypt($id);
+        //$id=Crypt::decrypt($id);
         try {
             $data = qualified_investor_attachement::where('investor_id', $id)->get();
             if (!$data->isEmpty()) {
