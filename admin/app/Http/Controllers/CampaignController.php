@@ -163,6 +163,37 @@ class CampaignController extends Controller
 
         }
 
+        public function updateCampaginData(Request $req)
+        {
+            try {
+                campaign::where('id',$req->id)->update([
+                    "cd admin" => $req->program_number,
+                    "version_number" => $req->version_number,
+                    "open_date" => $req->open_date,
+                    "net_sales" => $req->net_sales,
+                    "net_sales_years" => $req->net_sales_years,
+                    "net_profit" => $req->net_profit,
+                    "net_profit_years" => $req->net_profit_years,
+                    "cash_flow" => $req->cash_flow,
+                    "return_on_assets" => $req->return_on_assets,
+                    "debt_of_assets" => $req->debt_of_assets,
+                    "fin_statement_year" => $req->fin_statement_year,
+                    "due_date" => $req->due_date,
+                    "APR" => $req->APR,
+                    "info_Statement_date_G" => $req->info_Statement_date_G,
+                    "info_Statement_date_h" => $req->info_Statement_date_h,
+                    "financing_type" => $req->financing_type,
+                    "fund_use" => $req->fund_use,
+                    "financing_period" => $req->financing_period,
+                    "obtain_finance_dt" => $req->obtain_finance_dt,
+                    "finance_repayment_dt" => $req->finance_repayment_dt,
+                ]);
+                return CustomTrait::SuccessJson('done');
+            } catch (\Throwable $th) {
+                return CustomTrait::ErrorJson($$th->getMessage());
+            }
+        }
+
         function insertOpportunitySetup(Request $req)
         {
 
@@ -2118,7 +2149,7 @@ class CampaignController extends Controller
 
                 // if ($va['steps'] >= $oppostep['steps']) {
 
-                $data['campaign'] = OpportunitySetup::Leftjoin('campaigns', 'campaigns.id', '=', 'opportunity_setups.opportunity_id')->where(['opportunity_setups.opportunity_id' => $campaign_id, 'opportunity_setups.master_id' => 2])->first(["campaigns.id", "campaigns.product_id", "campaigns.user_id", "campaigns.tagline", "campaigns.share_price", "campaigns.total_valuation", "campaigns.min_investment", "campaigns.max_investment", "campaigns.fundriser_investment", "campaigns.company_bio", "campaigns.reason_to_invest", "campaigns.investment_planning", "campaigns.terms", "campaigns.introduce_team", "campaigns.status", "campaigns.approved_status", "campaigns.note","campaigns.program_number","campaigns.version_number","campaigns.open_date","campaigns.net_sales","campaigns.net_sales_years","campaigns.net_profit","campaigns.net_profit_years","campaigns.cash_flow","campaigns.return_on_assets","campaigns.debt_of_assets","campaigns.fin_statement_year","campaigns.due_date","campaigns.APR","campaigns.info_Statement_date_G","campaigns.info_Statement_date_h", 'opportunity_setups.role as role_type', 'opportunity_setups.activity', 'opportunity_setups.master_id'])->toArray();
+                $data['campaign'] = OpportunitySetup::Leftjoin('campaigns', 'campaigns.id', '=', 'opportunity_setups.opportunity_id')->where(['opportunity_setups.opportunity_id' => $campaign_id, 'opportunity_setups.master_id' => 2])->first(["campaigns.id", "campaigns.product_id", "campaigns.user_id", "campaigns.tagline", "campaigns.share_price", "campaigns.total_valuation", "campaigns.min_investment", "campaigns.max_investment", "campaigns.fundriser_investment", "campaigns.company_bio", "campaigns.reason_to_invest", "campaigns.investment_planning", "campaigns.terms", "campaigns.introduce_team", "campaigns.status", "campaigns.approved_status", "campaigns.note","campaigns.program_number","campaigns.version_number","campaigns.open_date","campaigns.net_sales","campaigns.net_sales_years","campaigns.net_profit","campaigns.net_profit_years","campaigns.cash_flow","campaigns.return_on_assets","campaigns.debt_of_assets","campaigns.fin_statement_year","campaigns.due_date","campaigns.APR","campaigns.info_Statement_date_G","campaigns.info_Statement_date_h","campaigns.approve_loan","campaigns.close_date","campaigns.duration_id","campaigns.returns_type_id","campaigns.financing_type","campaigns.fund_use","campaigns.financing_period","campaigns.obtain_finance_dt","campaigns.finance_repayment_dt", 'opportunity_setups.role as role_type', 'opportunity_setups.activity', 'opportunity_setups.master_id'])->toArray();
 
 
 

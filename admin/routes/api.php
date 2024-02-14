@@ -158,6 +158,7 @@ Route::post('/sendmail',[EmailController::class,'sendMail']);
     Route::post('/modify_evaluation_campaign',[CampaignController::class,'modifyEvaluationCampaign']);
     Route::post('campaginWithKycAdmin',[CampaignController::class,'campaginWithKyc']);
     Route::post('update_version_program/{id}',[CampaignController::class,'updateVersionProgram']);
+    Route::post('update_campaign_data',[CampaignController::class,'updateCampaginData']);
 
 
     //page
